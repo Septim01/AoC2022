@@ -1,9 +1,5 @@
 tmp = []
-x = 0
-y = 0
-win = 6
-draw = 3
-loss = 0
+win, draw, loss, x, y = 6, 3, 0, 0, 0
 
 def compare_first_part(arr):
     score = 0
