@@ -1,28 +1,17 @@
 letters = "-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 x = 0
 
-def first_part(line):
-    found = False
+def first_part():
     count = 0
-    if line.find('\n'):
-        line = line[0:len(line) - 1]
-    size = len(line)
-    for i in range(0, size):
-        if i < size / 2:
-            a.append(line[i])
-            continue
-        b.append(line[i])
-    for x in a:
-        if found:
-            break
-        for y in b:
-            if x == y:
-                count += letters.find(x)
-                found = True
-                break
-    found = False
+    with open("inp.txt", "r") as f:
+        inpt = f.read().split('\n')
+        for i in inpt:
+            a = i[len(i)//2:]
+            b = i[:len(i)//2]
+            temp = set(a).intersection(set(b))
+            for j in temp:
+                count += letters.find(j)
     return count
-
 
 def second_part():
     count = 0
@@ -33,10 +22,6 @@ def second_part():
             for j in temp:
                 count += letters.find(j)
     return count
-with open("inp.txt", "r") as f:
-    for line in f:
-        a = []
-        b = []
-        x += first_part(line)
-print(x)
+
+print(first_part())
 print(second_part())
